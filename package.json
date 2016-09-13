@@ -1,0 +1,49 @@
+{
+  "name": "lirc-http",
+  "version": "1.0.0",
+  "description": "LIRC HTTP API",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha lib/**/*.test.js",
+    "doc-lint": "./node_modules/.bin/documentation lint",
+    "doc-gen": "./node_modules/.bin/documentation readme --section \"API\"",
+    "all": "npm run lint && npm run doc-lint && npm run doc-gen && npm run test",
+    "patch-release": "npm run all && npm version patch && npm publish && git push --follow-tags",
+    "minor-release": "npm run all && npm version minor && npm publish && git push --follow-tags",
+    "major-release": "npm run all && npm version major && npm publish && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flochtililoch/lirc-http.git"
+  },
+  "keywords": [
+    "lirc",
+    "http",
+    "api",
+    "infra",
+    "red"
+  ],
+  "author": "flochtililoch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flochtililoch/lirc-http/issues"
+  },
+  "homepage": "https://github.com/flochtililoch/lirc-http#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "javascript-state-machine": "^2.3.5",
+    "lirc_node": "0.0.4",
+    "lodash.merge": "^4.6.0",
+    "lodash.topairs": "^4.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.0",
+    "mocha": "^3.0.2",
+    "proxyquire": "^1.7.9",
+    "sinon": "^1.17.4"
+  }
+}

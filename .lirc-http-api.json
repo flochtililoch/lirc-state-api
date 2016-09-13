@@ -1,0 +1,114 @@
+[
+  {
+    "id": "tv",
+    "lirc_id": "TV",
+    "name": "TV",
+    "states": [
+      {
+        "id": "power",
+        "type": "loop",
+        "values": ["off", "on"],
+        "keys": {
+          "next": "KEY_POWER"
+        }
+      },
+      {
+        "id": "mute",
+        "type": "loop",
+        "values": ["off", "on"],
+        "keys": {
+          "next": "KEY_MUTE"
+        }
+      },
+      {
+        "id": "volume",
+        "type": "linear",
+        "values": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+        "keys": {
+          "up": "KEY_VOLUMEUP",
+          "down": "KEY_VOLUMEDOWN"
+        }
+      },
+      {
+        "id": "source",
+        "type": "loop",
+        "values": ["tv", "hdmi1", "hdmi2", "composite"],
+        "keys": {
+          "next": "KEY_CYCLEWINDOWS"
+        }
+      }
+    ],
+    "dependencies": [
+      {
+        "states": ["mute", "volume", "source"],
+        "depends": [
+          {
+            "id": "power",
+            "values": ["on"]
+          }
+        ]
+      },
+      {
+        "states": ["volume"],
+        "depends": [
+          {
+            "id": "mute",
+            "values": ["off"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fan",
+    "lirc_id": "FAN",
+    "name": "Fan",
+    "states": [
+      {
+        "id": "power",
+        "type": "loop",
+        "values": ["off", "on"],
+        "keys": {
+          "next": "KEY_POWER"
+        }
+      },
+      {
+        "id": "rotate",
+        "type": "loop",
+        "values": ["off", "on"],
+        "keys": {
+          "next": "KEY_MOVE"
+        }
+      },
+      {
+        "id": "air",
+        "type": "linear",
+        "values": ["0", "1", "2", "3", "4", "5"],
+        "keys": {
+          "up": "BTN_GEAR_UP",
+          "down": "BTN_GEAR_DOWN"
+        }
+      },
+      {
+        "id": "timer",
+        "type": "linear",
+        "values": ["off", "15min", "30min", "45min"],
+        "keys": {
+          "up": "KEY_UP",
+          "down": "KEY_DOWN"
+        }
+      }
+    ],
+    "dependencies": [
+      {
+        "states": ["rotate", "air", "timer"],
+        "depends": [
+          {
+            "id": "power",
+            "values": ["on"]
+          }
+        ]
+      }
+    ]
+  }
+]
