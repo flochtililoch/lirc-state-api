@@ -3,3 +3,6 @@ node_js:
   - "6"
 env:
   - NODE_ENV=test
+script:
+  - npm test
+  - npm run lint
