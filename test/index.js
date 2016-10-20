@@ -3,6 +3,6 @@
 const {spawn} = require('child_process'),
       lirc = require('lirc_node');
 
-lirc.IRReceive._setInputListener(() => spawn('./node_modules/lirc_node/irwsimulator.sh'));
+lirc.IRReceive._setInputListener(() => spawn('./test/mocks/irw.js'));
 
 require('..');
