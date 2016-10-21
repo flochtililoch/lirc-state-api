@@ -3,6 +3,8 @@
     "id": "tv",
     "lirc_id": "TV",
     "name": "TV",
+    "send_delay": 0,
+    "receive_delay": 0,
     "states": [
       {
         "id": "power",

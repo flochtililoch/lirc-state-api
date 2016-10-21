@@ -5,4 +5,4 @@ const {spawn} = require('child_process'),
 
 lirc.IRReceive._setInputListener(() => spawn('./test/mocks/irw.js'));
 
-require('..');
+require('../..');

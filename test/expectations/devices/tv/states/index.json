@@ -1,0 +1,18 @@
+[
+  {
+    "id": "power",
+    "value": "off"
+  },
+  {
+    "id": "mute",
+    "value": "off"
+  },
+  {
+    "id": "volume",
+    "value": "0"
+  },
+  {
+    "id": "source",
+    "value": "tv"
+  }
+]
