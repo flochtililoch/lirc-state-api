@@ -1,0 +1,46 @@
+[
+  {
+    "id": "tv",
+    "name": "TV",
+    "states": [
+      {
+        "id": "power",
+        "value": "off"
+      },
+      {
+        "id": "mute",
+        "value": "off"
+      },
+      {
+        "id": "volume",
+        "value": "0"
+      },
+      {
+        "id": "source",
+        "value": "tv"
+      }
+    ]
+  },
+  {
+    "id": "fan",
+    "name": "Fan",
+    "states": [
+      {
+        "id": "power",
+        "value": "off"
+      },
+      {
+        "id": "rotate",
+        "value": "off"
+      },
+      {
+        "id": "air",
+        "value": "0"
+      },
+      {
+        "id": "timer",
+        "value": "off"
+      }
+    ]
+  }
+]

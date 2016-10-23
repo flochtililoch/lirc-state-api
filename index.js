@@ -58,6 +58,9 @@ app.get('/devices/:deviceid/states/:stateid', (request, response) => {
 app.put('/devices/:deviceid/states/:stateid', (request, response) => {
   const {deviceid, stateid} = request.params;
   const state = devices.getDevice(deviceid).states.getState(stateid);
-  state.go(request.body.value);
-  response.send(state.serialize());
+  state.setValue(request.body.value).then(() => {
+    response.send(state.serialize());
+  }).catch((reason) => {
+    response.status(400).send({reason});
+  });
 });
