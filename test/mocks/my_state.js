@@ -1,6 +1,6 @@
 'use strict';
 
-const State = require('../../lib/state');
+const State = require('../../lib/model/state');
 
 class MyState extends State {
 
