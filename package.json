@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --no-timeouts --compilers js:babel-core/register lib/**/*.test.js test/**/*.test.js",
     "test-app": "node test/support/app -p=3001 -c=./test/stubs/config.json",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers js:babel-core/register lib/**/*.test.js test/**/*.test.js",
+    "debug": "DEBUG=* node --inspect ./index.js -c=./test/stubs/config.json -p=3001",
+    "debug-test-app": "DEBUG=* node --inspect test/support/app -c=./test/stubs/config.json -p=3001",
     "doc-lint": "./node_modules/.bin/documentation lint",
     "doc-gen": "./node_modules/.bin/documentation readme --section \"API\"",
     "all": "npm run lint && npm run doc-lint && npm run doc-gen && npm run test",

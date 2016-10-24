@@ -3,7 +3,7 @@
     "id": "tv",
     "lirc_id": "TV",
     "name": "TV",
-    "send_delay": 0,
+    "send_delay": 500,
     "receive_delay": 0,
     "states": [
       {
@@ -85,7 +85,7 @@
       {
         "id": "air",
         "type": "linear",
-        "values": ["0", "1", "2", "3", "4", "5"],
+        "values": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         "keys": {
           "up": "BTN_GEAR_UP",
           "down": "BTN_GEAR_DOWN"
