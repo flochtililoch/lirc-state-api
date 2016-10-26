@@ -1,28 +1,30 @@
 {
-  "name": "lirc-http",
+  "name": "lirc-state-api",
   "version": "1.0.0",
-  "description": "LIRC HTTP API",
+  "description": "API to manipulate the states of infrared controlled devices",
   "main": "index.js",
   "scripts": {
+    "debug": "DEBUG=* node --inspect ./index.js -c=./test/stubs/config.json -p=3001",
     "lint": "./node_modules/.bin/eslint .",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --no-timeouts --compilers js:babel-core/register lib/**/*.test.js test/**/*.test.js",
     "test-app": "node test/support/app -p=3001 -c=./test/stubs/config.json",
-    "debug": "DEBUG=* node --inspect ./index.js -c=./test/stubs/config.json -p=3001",
-    "debug-test-app": "DEBUG=* node --inspect test/support/app -c=./test/stubs/config.json -p=3001",
-    "doc-lint": "./node_modules/.bin/documentation lint",
-    "doc-gen": "./node_modules/.bin/documentation readme --section \"API\"",
-    "all": "npm run lint && npm run doc-lint && npm run doc-gen && npm run test",
+    "test-app-background": "npm run test-app &",
+    "test-app-debug": "DEBUG=* node --inspect test/support/app -c=./test/stubs/config.json -p=3001",
+    "all": "npm run lint && npm run test-app-background && npm run test",
     "patch-release": "npm run all && npm version patch && npm publish && git push --follow-tags",
     "minor-release": "npm run all && npm version minor && npm publish && git push --follow-tags",
     "major-release": "npm run all && npm version major && npm publish && git push --follow-tags"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flochtililoch/lirc-http.git"
+    "url": "git+https://github.com/flochtililoch/lirc-state-api.git"
   },
   "keywords": [
     "lirc",
+    "fsm",
+    "state machine",
     "http",
+    "rest",
     "api",
     "infra",
     "red"
@@ -30,9 +32,9 @@
   "author": "flochtililoch",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/flochtililoch/lirc-http/issues"
+    "url": "https://github.com/flochtililoch/lirc-state-api/issues"
   },
-  "homepage": "https://github.com/flochtililoch/lirc-http#readme",
+  "homepage": "https://github.com/flochtililoch/lirc-state-api#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "debug": "^2.2.0",
