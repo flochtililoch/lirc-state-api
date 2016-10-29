@@ -5,15 +5,15 @@
     "states": [
       {
         "id": "power",
-        "value": "off"
+        "value": false
       },
       {
         "id": "mute",
-        "value": "off"
+        "value": false
       },
       {
         "id": "volume",
-        "value": "0"
+        "value": 0
       },
       {
         "id": "source",
@@ -27,15 +27,15 @@
     "states": [
       {
         "id": "power",
-        "value": "off"
+        "value": false
       },
       {
         "id": "rotate",
-        "value": "off"
+        "value": false
       },
       {
         "id": "air",
-        "value": "1"
+        "value": 1
       },
       {
         "id": "timer",

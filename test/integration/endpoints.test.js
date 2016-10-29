@@ -16,10 +16,10 @@ const devicesUrl = '/devices',
       };
 
 const state = {
-  mute: {id: 'mute', value: 'off'},
+  mute: {id: 'mute', value: false},
   source: {id: 'source', value: 'tv'},
-  volume: {id: 'volume', value: '0'},
-  power: {id: 'power', value: 'off'},
+  volume: {id: 'volume', value: 0},
+  power: {id: 'power', value: false},
 };
 
 const badRequestReason = state => `State ${state} cannot change, unmet dependencies.`;
@@ -54,39 +54,39 @@ describe('Devices states show', () => {
 describe('Devices states update', () => {
   describe('when not changing values', () => {
     describe('Mute', () => {
-      it(OK, () => put(statesUrls.mute, {value: 'off'}).sends.ok(state.mute));
+      it(OK, () => put(statesUrls.mute, {value: false}).sends.ok(state.mute));
     });
     describe('Source', () => {
       it(OK, () => put(statesUrls.source, {value: 'tv'}).sends.ok(state.source));
     });
     describe('Volume', () => {
-      it(OK, () => put(statesUrls.volume, {value: '0'}).sends.ok(state.volume));
+      it(OK, () => put(statesUrls.volume, {value: 0}).sends.ok(state.volume));
     });
     describe('Power', () => {
-      it(OK, () => put(statesUrls.power, {value: 'off'}).sends.ok(state.power));
+      it(OK, () => put(statesUrls.power, {value: false}).sends.ok(state.power));
     });
   });
   describe('when changing values', () => {
     describe('with unmet dependencies', () => {
       describe('Mute', () => {
-        it(NOK, () => put(statesUrls.mute, {value: 'on'}).sends.badRequest({reason: badRequestReason('mute')}));
+        it(NOK, () => put(statesUrls.mute, {value: true}).sends.badRequest({reason: badRequestReason('mute')}));
       });
       describe('Source', () => {
         it(NOK, () => put(statesUrls.source, {value: 'hdmi1'}).sends.badRequest({reason: badRequestReason('source')}));
       });
       describe('Volume', () => {
-        it(NOK, () => put(statesUrls.volume, {value: '1'}).sends.badRequest({reason: badRequestReason('volume')}));
+        it(NOK, () => put(statesUrls.volume, {value: 1}).sends.badRequest({reason: badRequestReason('volume')}));
       });
     });
     describe('without dependencies', () => {
       describe('Power', () => {
-        const value = 'on';
+        const value = true;
         it(OK, () => put(statesUrls.power, {value}).sends.ok({...state.power, value}));
       });
     });
     describe('with met dependencies', () => {
       describe('Mute', () => {
-        const value = 'on';
+        const value = true;
         it(OK, () => put(statesUrls.mute, {value}).sends.ok({...state.mute, value}));
       });
       describe('Source', () => {
@@ -94,8 +94,8 @@ describe('Devices states update', () => {
         it(OK, () => put(statesUrls.source, {value}).sends.ok({...state.source, value}));
       });
       describe('Volume', () => {
-        const value = '1';
-        before(() => put(statesUrls.mute, {value: 'off'}));
+        const value = 1;
+        before(() => put(statesUrls.mute, {value: false}));
         it(OK, () => put(statesUrls.volume, {value}).sends.ok({...state.volume, value}));
       });
     });
