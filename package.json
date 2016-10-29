@@ -1,6 +1,6 @@
 {
   "name": "lirc-state-api",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "API to manipulate the states of infrared controlled devices",
   "main": "index.js",
   "scripts": {
