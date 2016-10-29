@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "API to manipulate the states of infrared controlled devices",
   "main": "index.js",
+  "bin": {
+    "lirc-state-api": "./index.js"
+  },
   "scripts": {
     "debug": "DEBUG=* node --inspect ./index.js -c=./test/stubs/config.json -p=3001",
     "lint": "./node_modules/.bin/eslint .",

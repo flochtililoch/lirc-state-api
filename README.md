@@ -199,6 +199,12 @@ The configuration is expressed in a JSON file via an array of javascript objects
 ]
 ```
 
+### Run
+
+```bash
+$ lirc-state-api -c=/path/to/config.json [-p=1234]
+```
+
 ## Model
 
 ### Devices
