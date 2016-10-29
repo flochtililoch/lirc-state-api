@@ -1,15 +1,15 @@
 [
   {
     "id": "power",
-    "value": "off"
+    "value": false
   },
   {
     "id": "mute",
-    "value": "off"
+    "value": false
   },
   {
     "id": "volume",
-    "value": "0"
+    "value": 0
   },
   {
     "id": "source",
