@@ -43,7 +43,7 @@
     "debug": "^2.2.0",
     "express": "^4.14.0",
     "javascript-state-machine": "^2.3.5",
-    "lirc_node": "0.0.4",
+    "lirc_node": "git+https://git@github.com/flochtililoch/lirc_node#2365669f8f56762ceed704158bf6d2cbea50671a",
     "lodash.merge": "^4.6.0",
     "lodash.topairs": "^4.3.0"
   },

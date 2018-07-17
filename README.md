@@ -51,6 +51,7 @@ The configuration is expressed in a JSON file via an array of javascript objects
 - `states`: *array* [state objects](#state-configuration).
 
 #### Optional properties:
+- `lircd_address`: *string* (host[:port]) configure a host to send IR command to (see address option at http://lirc.org/html/irsend.html#lbAE)
 - `send_delay`: *integer* (milliseconds, default to 500).
 - `receive_delay`: *integer* (milliseconds, default to 0).
 - `dependencies`: *array* [dependency objects](#dependency-configuration).
@@ -85,6 +86,7 @@ The configuration is expressed in a JSON file via an array of javascript objects
   {
     "id": "tv",
     "lirc_id": "TV",
+    "lircd_address": "lirc.local:8765",
     "name": "TV",
     "send_delay": 500,
     "receive_delay": 0,
