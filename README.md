@@ -53,7 +53,6 @@ The configuration is expressed in a JSON file via an array of javascript objects
 #### Optional properties:
 - `lircd_address`: *string* (host[:port]) configure a host to send IR command to (see address option at http://lirc.org/html/irsend.html#lbAE)
 - `send_delay`: *integer* (milliseconds, default to 500).
-- `repeat`: *boolean* (default to false)
 - `receive_delay`: *integer* (milliseconds, default to 0).
 - `dependencies`: *array* [dependency objects](#dependency-configuration).
 
@@ -64,6 +63,9 @@ The configuration is expressed in a JSON file via an array of javascript objects
 - `type`: *string* Possible values: [`loop`](#loop-state), [`linear`](#linear-state)
 - `values`: *array* List of all values the state can take.
 - `keys`: *object*. [keys object](#keys-configuration).
+
+#### Optional properties:
+- `send_for`: *number* (milliseconds) - when specified, will continuously emit the key signal for the specified time.
 
 ### Keys configuration
 
@@ -156,6 +158,7 @@ The configuration is expressed in a JSON file via an array of javascript objects
         "id": "power",
         "type": "loop",
         "values": [false, true],
+        "send_for": 500,
         "keys": {
           "next": "KEY_POWER"
         }
